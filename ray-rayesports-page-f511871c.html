@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷竞技 · 知识导览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f4f7;
+      color: #222;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 主头部 */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.8rem 2rem 2.4rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #eaedf2;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 560;
+      letter-spacing: -0.01em;
+      color: #111;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 660px;
+      margin: 0 auto 1rem;
+      color: #3f434b;
+      font-size: 1.05rem;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      margin-top: 1.2rem;
+      background: #eef1f5;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #2c303a;
+      border: 1px solid #dce1e7;
+    }
+
+    /* 目录感布局 — 卡片网格 */
+    .directory-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+
+    @media (min-width: 600px) {
+      .directory-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .directory-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem 1.8rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e7eaf0;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .card:hover {
+      border-color: #d0d6e0;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 540;
+      margin-bottom: 0.65rem;
+      color: #1f232b;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 0.97rem;
+      color: #424751;
+      margin-bottom: 0.3rem;
+    }
+
+    .card .badge {
+      display: inline-block;
+      background: #eef1f6;
+      border-radius: 14px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.8rem;
+      color: #2e3440;
+      border: 1px solid #dadfe7;
+      margin-top: 0.5rem;
+    }
+
+    .card ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      color: #424751;
+      font-size: 0.95rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* 说明区 + 提示区 双栏 */
+    .info-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+
+    @media (min-width: 640px) {
+      .info-row {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .explain-box {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.8rem 2rem;
+      border: 1px solid #e7eaf0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .explain-box h2 {
+      font-size: 1.5rem;
+      font-weight: 530;
+      margin-bottom: 0.9rem;
+      color: #1a1e27;
+    }
+
+    .explain-box p {
+      margin-bottom: 0.8rem;
+      color: #3b404a;
+    }
+
+    .explain-box a {
+      color: #1d4c8f;
+      text-decoration: none;
+      border-bottom: 1px solid #b3c9e2;
+      transition: border-color 0.1s;
+    }
+
+    .explain-box a:hover {
+      border-bottom-color: #1d4c8f;
+    }
+
+    .tip-box {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem 2rem;
+      border: 1px solid #e7eaf0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .tip-box h3 {
+      font-size: 1.2rem;
+      font-weight: 520;
+      margin-bottom: 0.8rem;
+      color: #1a1e27;
+    }
+
+    .tip-box p, .tip-box li {
+      font-size: 0.96rem;
+      color: #3f444e;
+    }
+
+    .tip-box ul {
+      padding-left: 1.2rem;
+      margin-top: 0.4rem;
+    }
+
+    /* 相关信息区 — 紧凑摘要 */
+    .related-area {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem 2rem;
+      border: 1px solid #e7eaf0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      margin-bottom: 2.2rem;
+    }
+
+    .related-area h2 {
+      font-size: 1.4rem;
+      font-weight: 530;
+      margin-bottom: 1rem;
+      color: #1a1e27;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 500px) {
+      .related-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .related-item {
+      background: #f7f9fc;
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #e0e5ec;
+    }
+
+    .related-item .q {
+      font-weight: 520;
+      color: #1f232b;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .related-item .a {
+      color: #474d59;
+      font-size: 0.94rem;
+    }
+
+    .related-item .a a {
+      color: #1d4c8f;
+      text-decoration: none;
+      border-bottom: 1px solid #b3c9e2;
+    }
+
+    .related-item .a a:hover {
+      border-bottom-color: #1d4c8f;
+    }
+
+    /* 脚注 */
+    .footer-note {
+      text-align: center;
+      padding: 1.2rem 0 0.6rem;
+      color: #6d737f;
+      font-size: 0.85rem;
+      border-top: 1px solid #dfe3ea;
+      margin-top: 1.2rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e6ed;
+      margin: 2rem 0 1.2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>⚡ 雷竞技 · 知识库入口</h1>
+    <p>一个以竞技资讯、赛事观察与社区讨论为核心的信息平台。无论你想了解最新赛程、战队动态，还是回顾经典对决，<strong>雷竞技</strong>都能提供结构化的内容索引。</p>
+    <div class="tagline">📋 目录导览 · 快速定位</div>
+  </div>
+
+  <!-- 目录卡片网格：三个不同职能卡片 -->
+  <div class="directory-grid">
+    <div class="card">
+      <h3>🏷️ 赛事档案</h3>
+      <p>收录主流项目的赛季回顾、关键场次数据、选手高光时刻。适合希望系统查阅历史赛事的用户。</p>
+      <div class="badge">LPL · CS2 · Dota 2 · VALORANT</div>
+    </div>
+    <div class="card">
+      <h3>📡 资讯速览</h3>
+      <p>每日聚合国内外电竞新闻，转会、版本更新、赛事预告一目了然。信息源经过筛选，减少噪声。</p>
+      <ul>
+        <li>赛程变动提醒</li>
+        <li>选手专访摘录</li>
+        <li>版本改动简析</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🧭 导航&工具</h3>
+      <p>常用外部资源、官方数据站、直播平台集合。方便你在不同站点间快速跳转。</p>
+      <div class="badge">实时比分 · 录像回放 · 社区讨论</div>
+    </div>
+  </div>
+
+  <!-- 说明区 + 提示区 双列 -->
+  <div class="info-row">
+    <div class="explain-box">
+      <h2>🔍 这个网站主要做什么？</h2>
+      <p><strong>雷竞技</strong>（<a href="https://ray-rayesports.com">雷竞技</a>）并非单一资讯源，而是一个把信息组织成“可查阅模块”的轻量知识库。你不需要漫无目的地翻找——每个分区都围绕一个具体需求设计：找赛程、读战报、查背景。</p>
+      <p>例如，在「赛事档案」中你可以快速过滤某个赛季的淘汰赛对阵；在「资讯速览」里则能看到编辑部精选的短评。整体风格冷静，不刻意制造紧迫感。</p>
+      <p>如果你只想快速判断某支队伍近期的状态，或者追踪某个选手的英雄池变化，这里的结构化卡片能帮你节约时间。</p>
+    </div>
+
+    <div class="tip-box">
+      <h3>💡 使用提示</h3>
+      <ul>
+        <li>每个卡片都指向一个独立内容模块，点击即可展开。</li>
+        <li>搜索栏支持关键词模糊匹配，试试队伍名、版本号。</li>
+        <li>部分外部链接会标注来源，请自行甄别时效性。</li>
+        <li>建议使用桌面浏览器获得最佳卡片布局体验。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 相关信息区：FAQ 摘要 / 补充说明 -->
+  <div class="related-area">
+    <h2>📌 相关信息</h2>
+    <div class="related-grid">
+      <div class="related-item">
+        <span class="q">❓ 需要注册才能浏览吗？</span>
+        <span class="a">大部分内容无需登录即可阅读。部分社区功能（收藏、评论）可能需要账号。</span>
+      </div>
+      <div class="related-item">
+        <span class="q">📅 赛事数据更新频率？</span>
+        <span class="a">大型赛事期间每日更新；休赛期每周整合一次。具体可参考模块右上角的“最后更新”标记。</span>
+      </div>
+      <div class="related-item">
+        <span class="q">🌐 与主站 <a href="https://ray-rayesports.com">雷竞技</a> 的关系？</span>
+        <span class="a">此知识库是主站内容的索引与补充，方便你按主题深入浏览，两者数据互通。</span>
+      </div>
+      <div class="related-item">
+        <span class="q">📮 内容纠错或建议？</span>
+        <span class="a">页面底部有反馈入口，或直接联系编辑团队。我们重视准确性。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 一个小分割 + 温和收尾 -->
+  <hr>
+  <div style="background: #ffffff; border-radius: 20px; padding: 1.4rem 1.8rem; border: 1px solid #e7eaf0; margin-bottom: 1.8rem;">
+    <p style="font-size: 0.96rem; color: #3a3f4a;">⬆️ 以上卡片区域涵盖了知识库的主要入口。每个分区都保持独立，你可以从任意卡片开始探索。如果你刚刚接触 <a href="https://ray-rayesports.com" style="color:#1d4c8f;border-bottom:1px solid #b3c9e2;text-decoration:none;">雷竞技</a>，不妨从「赛事档案」或「资讯速览」入手，感受信息组织方式。</p>
+  </div>
+
+  <div class="footer-note">
+    <span>© Ray·雷竞技知识导览</span>  ·  内容仅供参考  ·  保持开放心态
+  </div>
+
+</div>
+</body>
+</html>
