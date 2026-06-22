@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷竞技 · 专题指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafaf9;
+            color: #1c1917;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 660px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* hero 横幅 — 杂志式衬线标题 */
+        .hero {
+            margin-bottom: 4rem;
+            border-bottom: 1px solid #d6d3d1;
+            padding-bottom: 2.5rem;
+        }
+
+        .hero__label {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #78716c;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .hero__heading {
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: #0c0a09;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        .hero__sub {
+            margin-top: 1.2rem;
+            color: #57534e;
+            font-size: 1rem;
+            max-width: 30em;
+        }
+
+        /* 卡片式说明块 — 窄正文 + 清晰层级 */
+        .section-card {
+            margin-bottom: 3rem;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid #e7e5e4;
+        }
+
+        .section-card h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #1c1917;
+            margin-bottom: 0.65rem;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .section-card h2::after {
+            content: "";
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: #d6d3d1;
+            margin-top: 0.4rem;
+        }
+
+        .section-card p {
+            font-size: 0.95rem;
+            color: #44403c;
+            margin-bottom: 1.1rem;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-card ul {
+            list-style: none;
+            margin: 0.75rem 0 0.5rem;
+        }
+
+        .section-card ul li {
+            font-size: 0.9rem;
+            color: #57534e;
+            padding-left: 1.4rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-card ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #a8a29e;
+        }
+
+        .highlight-link {
+            color: #1c1917;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #a8a29e;
+            transition: text-decoration-color 0.2s;
+        }
+
+        .highlight-link:hover {
+            text-decoration-color: #292524;
+        }
+
+        /* 特点摘要 — 极简分隔 */
+        .features-note {
+            margin-bottom: 2.5rem;
+            padding: 0 0.2rem;
+        }
+
+        .features-note h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #292524;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.01em;
+        }
+
+        .features-note p {
+            font-size: 0.9rem;
+            color: #57534e;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #e7e5e4;
+            margin: 2rem 0;
+        }
+
+        /* 页尾访问提示 */
+        .footer-cta {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #d6d3d1;
+            text-align: center;
+        }
+
+        .footer-cta p {
+            font-size: 0.95rem;
+            color: #57534e;
+        }
+
+        .footer-cta .link-word {
+            font-weight: 500;
+            color: #0c0a09;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1.5px;
+            text-decoration-color: #cbd5e1;
+        }
+
+        .footer-cta .link-word:hover {
+            text-decoration-color: #292524;
+        }
+
+        .small-meta {
+            font-size: 0.75rem;
+            color: #a8a29e;
+            margin-top: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 520px) {
+            .page {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .hero__heading {
+                font-size: 1.9rem;
+            }
+
+            .section-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .section-card h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <!-- 杂志横幅 -->
+    <header class="hero">
+        <div class="hero__label">简明指南 · 竞技视野</div>
+        <h1 class="hero__heading">雷竞技<br>从理解到使用</h1>
+        <p class="hero__sub">一份聚焦于平台逻辑与访问基础的专题介绍，避免冗余，只保留必要信息。</p>
+    </header>
+
+    <!-- 三段自然介绍：背景说明 + 简明指南 + 场景与提醒 -->
+    <section class="section-card">
+        <h2>背景 · 竞技服务的定位</h2>
+        <p><a href="https://main-rayesports.com" class="highlight-link">雷竞技</a> 是一个以电子竞技为核心参照的信息与互动平台，围绕赛事数据、选手动态及对战趋势提供结构化内容。与泛娱乐平台不同，它更侧重竞技本身的逻辑——赛程、队伍构成、历史交锋等维度的整理，帮助用户快速建立对赛事的全景认知。</p>
+        <p>平台设计上强调信息密度与低干扰，界面节奏偏向工具属性，适合需要快速查阅竞技数据的用户。以下从访问准备、核心功能、常见场景三个层面展开。</p>
+    </section>
+
+    <section class="section-card">
+        <h2>访问指南 · 关键前提</h2>
+        <p>使用 <a href="https://main-rayesports.com" class="highlight-link">雷竞技</a> 前建议确认以下三点：网络环境稳定，设备浏览器保持更新（Chrome / Edge / Safari 近年版本）；首次访问时可留意页面语言与区域选项，部分赛事数据以 UTC 时间标注。平台无需注册即可浏览大部分公开内容，但若需要订阅特定战队或参与社区讨论，则需完成账号创建。</p>
+        <p>界面导航以赛事分类为主轴，左侧栏列出主流项目（如 Dota 2、CS2、VALORANT、LoL 等），右侧面板展示即时比分与即将开始的场次。数据更新频率通常在 30–60 秒区间，关键对局会附带简短文字复盘。</p>
+    </section>
+
+    <section class="section-card">
+        <h2>常见场景与使用提示</h2>
+        <p>日常使用中，用户多用于赛前查看双方近期交锋记录、地图胜率以及选手个人数据。例如，在大赛前对比两支队伍的过往交手战绩，或观察特定选手在近十场中的击杀/死亡/助攻曲线。这些信息在 <a href="https://main-rayesports.com" class="highlight-link">雷竞技</a> 的「对战详情」与「选手档案」模块中可直接调取。</p>
+        <p>另外，平台提供简易的赛程日历导出功能（ICS 格式），适合需要将赛程同步至个人日历的用户。需注意：部分深度统计（如实时经济差、视野得分）仅在大型锦标赛期间开放完整维度，常规赛事可能仅保留基础数据。</p>
+        <ul>
+            <li>赛事列表按日期排序，支持筛选特定阶段（小组赛 / 淘汰赛）</li>
+            <li>选手页面展示近 20 场表现热力图，含 KDA、分均伤害、参团率</li>
+            <li>队伍页面含阵容变动时间轴，标注转会窗口与替补记录</li>
+        </ul>
+    </section>
+
+    <!-- 补充特点摘要 (极简、窄) -->
+    <div class="features-note">
+        <h3>关于信息可靠性</h3>
+        <p>数据来源标注于各页面底部，主要采自官方赛事 API 及合作数据商。历史记录保留最近三个赛季，部分早期赛事因数据口径调整可能存在 ±2% 的浮动，页面会有相应备注。</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 页尾访问提示 (自然嵌入链接) -->
+    <div class="footer-cta">
+        <p>若需直接了解当前赛季赛程、战队 roster 或选手统计，可通过 <a href="https://main-rayesports.com" class="link-word">雷竞技</a> 首页进入对应模块。平台无强制弹窗或自动跳转，所有导航均为手动触发。</p>
+        <p class="small-meta">参考版本 · 2025 年 3 月</p>
+    </div>
+</div>
+
+</body>
+</html>
